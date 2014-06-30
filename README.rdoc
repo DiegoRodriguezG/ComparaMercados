@@ -4,42 +4,42 @@ Necesitas tener el entorno de desarrollo completo (bdd y rvm) y listo para traba
 
 Necesitas (suponiendo que ya tienes RVM instalado):
 
-	* Ruby version: ruby 1.9.3p125
+* Ruby version: ruby 1.9.3p125
 
-	* Rails version: Rails 4.0.3
+* Rails version: Rails 4.0.3
 
 Clonamos el proyecto:
 
-	* git clone git@github.com:DiegoRodriguezG/ComparaMercados.git
+* git clone git@github.com:DiegoRodriguezG/ComparaMercados.git
 
 Ya, cuando clonamos el proyecto, hacemos bundle:
 
-	* bundle
+* bundle
 
 Luego se crea la base de datos(sin el encoding):
 
-	* CREATE DATABASE `comparamercados_dev`;
+* CREATE DATABASE `comparamercados_dev`;
 
 Se crea el usuario de la base de datos en mysql:
 
-	* CREATE USER 'comparamercados'@'localhost' IDENTIFIED BY 'comparamercados1234';
+* CREATE USER 'comparamercados'@'localhost' IDENTIFIED BY 'comparamercados1234';
 
 Finalmente asignamos los permisos al usuario creado:
 
-	* GRANT ALL PRIVILEGES ON comparamercados_dev.* TO 'comparamercados'@'localhost' IDENTIFIED BY 'comparamercados1234';
+* GRANT ALL PRIVILEGES ON comparamercados_dev.* TO 'comparamercados'@'localhost' IDENTIFIED BY 'comparamercados1234';
 
 Después de tener nuestra base de datos, corremos las migraciones:
 
-	* rake db:migrate
+* rake db:migrate
 
 Ahora, cuando ya las migraciones están listas, debemos ver las tareas rake para poblar las tablas (obtener_datos, es el grupo de tareas rake que usaremos).
 
-	* rake -T | grep obtener_datos
+* rake -T | grep obtener_datos
 
 Cuando nos despliege el grupo de tareas, debemos correr la siguente:
 
-	* rake obtener_datos:obtener_productos_unimarc
+* rake obtener_datos:obtener_productos_unimarc
 
-	* ESTA TAREA EN UN PROTOTIPO, ENTONCES DE DEBE EJECUTAR SOLO UNA VEZ, O SI NO, DUPLICA LOS PRODUCTOS
+* ESTA TAREA EN UN PROTOTIPO, ENTONCES DE DEBE EJECUTAR SOLO UNA VEZ, O SI NO, DUPLICA LOS PRODUCTOS
 
 Estamos listos! podemos empezar a trabajar :D
