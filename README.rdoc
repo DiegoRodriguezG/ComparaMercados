@@ -1,28 +1,45 @@
-== README
+LEEME
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Necesitas tener el entorno de desarrollo completo (bdd y rvm) y listo para trabajar.
 
-Things you may want to cover:
+Necesitas (suponiendo que ya tienes RVM instalado):
 
-* Ruby version
+	* Ruby version: ruby 1.9.3p125
 
-* System dependencies
+	* Rails version: Rails 4.0.3
 
-* Configuration
+Clonamos el proyecto:
 
-* Database creation
+	* git clone git@github.com:DiegoRodriguezG/ComparaMercados.git
 
-* Database initialization
+Ya, cuando clonamos el proyecto, hacemos bundle:
 
-* How to run the test suite
+	* bundle
 
-* Services (job queues, cache servers, search engines, etc.)
+Luego se crea la base de datos(sin el encoding):
 
-* Deployment instructions
+	* CREATE DATABASE `comparamercados_dev`;
 
-* ...
+Se crea el usuario de la base de datos en mysql:
 
+	* CREATE USER 'comparamercados'@'localhost' IDENTIFIED BY 'comparamercados1234';
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Finalmente asignamos los permisos al usuario creado:
+
+	* GRANT ALL PRIVILEGES ON comparamercados_dev.* TO 'comparamercados'@'localhost' IDENTIFIED BY 'comparamercados1234';
+
+Después de tener nuestra base de datos, corremos las migraciones:
+
+	* rake db:migrate
+
+Ahora, cuando ya las migraciones están listas, debemos ver las tareas rake para poblar las tablas (obtener_datos, es el grupo de tareas rake que usaremos).
+
+	* rake -T | grep obtener_datos
+
+Cuando nos despliege el grupo de tareas, debemos correr la siguente:
+
+	* rake obtener_datos:obtener_productos_unimarc
+
+	* ESTA TAREA EN UN PROTOTIPO, ENTONCES DE DEBE EJECUTAR SOLO UNA VEZ, O SI NO, DUPLICA LOS PRODUCTOS
+
+Estamos listos! podemos empezar a trabajar :D
