@@ -22,8 +22,9 @@ namespace :obtener_datos do
 					nuevo_producto = Producto.new
 					nuevo_producto.descripcion = campos[0] + ' ' + campos[1]
 					nuevo_producto.precio = campos[3]
+					nuevo_producto.supermercado = supermercado
 					nuevo_producto.save
-					puts "producto #{nuevo_producto.descripcion} creado!"
+					puts "producto #{nuevo_producto.descripcion} perteneciente a #{supermercado} creado!"
 			end
 		rescue Exception => e
 			puts "ERROR!"
