@@ -7,8 +7,7 @@
 		  <li class="description"><%= @producto.supermercado.nombre %></li>
 		  <li class="cta-button">
 			  <%= form_tag agregar_producto_path(:id => params[:id]) do %>
-
-			  	<%= submit_tag "Agrega a Comparación" %>
+			  	<%= submit_tag "Agrega a Comparación", :class => "button" %>
 				<% end %>
 		  </li>
 		</ul>
