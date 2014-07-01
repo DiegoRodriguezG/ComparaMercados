@@ -12,6 +12,7 @@
   </head>
 
   <body>
+  	<%= javascript_include_tag "application" %>
   	<div class="contain-to-grid">
       <nav id="menu_superior" class="top-bar" data-topbar>
         <ul class="title-area">
@@ -36,11 +37,21 @@
     	<div class="row">
 	      <div class="large-12 small-12 columns text-center">
 	        <div class="large-6 small-6 columns text-center">
-				  	<div data-alert class="alert-box success radius">
+				  	<div id="mensaje_productos" data-alert class="alert-box success radius">
 				  		<h6>Productos agregados a comparador</h6>
-						  <% producto = Producto.find cookies[:id] %>
-				  		<h7><%= producto.descripcion %></h7>
-						  <a href="#" class="close">&times;</a>
+				  		<% if cookies[:id].split('&').count == 1 %>
+				  			<% producto = Producto.find cookies[:id] %>
+				  			<h7><%= producto.descripcion %></h7>
+				  		<% else %>
+				  			<% productos = Producto.find cookies[:id].split('&') %>
+				  			<% productos.each do |producto| %>
+				  				<div class="clear"></div>
+				  				<h7><%= producto.descripcion %></h7>
+				  				<div class="clear"></div>
+				  			<% end %>
+				  			<%= link_to "Compara!", comparador_path %>
+				  		<% end %>
+						  <a id="alert" href="#" class="close">&times;</a>
 						</div>
 					</div>
 	      </div>
@@ -58,9 +69,10 @@
 	      </div>
 
 	    <%= yield %>
-
 	    </div>
-
+	    <br></br>
+	    <br></br>
+	    <br></br>
 		  <div id="footer" class="row">
 		    <div id="contenido_footer" class="large-12 small-12 columns">
 		      <div id="redes_sociales">
@@ -72,6 +84,12 @@
 		  </div>
 	  </section>
 
-    <%= javascript_include_tag "application" %>
+	  <script type="text/javascript">
+	  	$(function() {
+        $("#alert").click(function(){
+        	
+        });
+      });
+	  </script>
   </body>
 </html>

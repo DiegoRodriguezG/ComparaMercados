@@ -10,7 +10,21 @@ class PublicController < ApplicationController
 	end
 
 	def agregar_producto
-		cookies[:id] = params[:id]
+
+		if cookies[:id].nil?
+			cookies[:id] = params[:id]
+		else
+			cookies[:id] = cookies[:id].split << params[:id]
+		end
+		
 		redirect_to root_path
+	end
+
+	def comparador
+		if cookies[:id].nil?
+			redirect_to root_path
+		else
+			@productos = Producto.find cookies[:id].split('&')
+		end
 	end
 end
