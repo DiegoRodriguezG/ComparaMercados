@@ -30,29 +30,47 @@
       </nav>
     </div>
 
-   <section role="main">
-      <div class="row">
-        <div class="large-12 small-12 columns text-center">
-          <%#= link_to root_path, id: 'link_logo' do %>
-            <%#= image_tag "logo.png", id: 'logo' %>
-          <%# end %>
-        </div>
-        
+    <br></br>
 
-      <%= yield %>
+    <% unless cookies[:id].nil? %>
+    	<div class="row">
+	      <div class="large-12 small-12 columns text-center">
+	        <div class="large-6 small-6 columns text-center">
+				  	<div data-alert class="alert-box success radius">
+				  		<h6>Productos agregados a comparador</h6>
+						  <% producto = Producto.find cookies[:id] %>
+				  		<h7><%= producto.descripcion %></h7>
+						  <a href="#" class="close">&times;</a>
+						</div>
+					</div>
+	      </div>
+	    </div>
+	  <% end %>
 
-      </div>
+	  <br></br>
 
-      <div id="footer" class="row">
-        <div id="contenido_footer" class="large-12 small-12 columns">
-          <div id="redes_sociales">
-            <!-- <h4>Siguenos en </h4>
-            <a href="https://github.com/DiegoRodriguezG/ComparaMercados" target="_blank">
-            </a> -->
-          </div>
-        </div>
-      </div>
-    </section>
+	  <section role="main">
+	    <div class="row">
+	      <div class="large-12 small-12 columns text-center">
+	        <%#= link_to root_path, id: 'link_logo' do %>
+	          <%#= image_tag "logo.png", id: 'logo' %>
+	        <%# end %>
+	      </div>
+
+	    <%= yield %>
+
+	    </div>
+
+		  <div id="footer" class="row">
+		    <div id="contenido_footer" class="large-12 small-12 columns">
+		      <div id="redes_sociales">
+		        <!-- <h4>Siguenos en </h4>
+		        <a href="https://github.com/DiegoRodriguezG/ComparaMercados" target="_blank">
+		        </a> -->
+		      </div>
+		    </div>
+		  </div>
+	  </section>
 
     <%= javascript_include_tag "application" %>
   </body>

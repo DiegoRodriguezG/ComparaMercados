@@ -7,6 +7,7 @@ Comparamercados::Application.routes.draw do
 
   controller :public do
     get "producto/:id" => :ver_producto
+    post "producto/:id" => :agregar_producto, as: "agregar_producto"
   end
 
   # Example of regular route:
