@@ -5,6 +5,10 @@ Comparamercados::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'public#index'
 
+  controller :public do
+    get "producto/:id" => :ver_producto
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

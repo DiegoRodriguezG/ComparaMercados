@@ -1,1 +1,11 @@
-<h1>hola</h1>
+<h1>ComparaMercados</h1>
+<br></br>
+<a href="#" class="button expand">Crea tu Lista</a>
+<br></br>
+<h3 class="subheader">Top Productos</h3>
+	<% @productos.each do |producto| %>
+		</br>
+		<h4 class="subheader"><small><%= producto.descripcion %></small></h4>
+		<%= link_to "Ver producto", action: :ver_producto, id: producto.id %>
+		<br>
+	<% end %>

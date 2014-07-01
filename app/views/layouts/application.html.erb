@@ -1,14 +1,59 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Comparamercados</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+  	<div class="contain-to-grid">
+      <nav id="menu_superior" class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name"></li>
+          <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+        </ul>
+        <section class="top-bar-section">
+          <!-- Right Nav Section -->
+            <ul class="right">
+            	<li class="active"><a href="#">Inicio</a></li>
+              <li>
+                <%= link_to "Sobre nosotros", root_path %>
+              </li>
+            </ul>
+        </section>
+      </nav>
+    </div>
+
+   <section role="main">
+      <div class="row">
+        <div class="large-12 small-12 columns text-center">
+          <%#= link_to root_path, id: 'link_logo' do %>
+            <%#= image_tag "logo.png", id: 'logo' %>
+          <%# end %>
+        </div>
+        
+
+      <%= yield %>
+
+      </div>
+
+      <div id="footer" class="row">
+        <div id="contenido_footer" class="large-12 small-12 columns">
+          <div id="redes_sociales">
+            <!-- <h4>Siguenos en </h4>
+            <a href="https://github.com/DiegoRodriguezG/ComparaMercados" target="_blank">
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
