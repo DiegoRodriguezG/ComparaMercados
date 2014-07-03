@@ -1,8 +1,8 @@
 class CreateSupermercados < ActiveRecord::Migration
   def change
     create_table :supermercados do |t|
-      t.text :logo
-      t.text :nombre
+      t.string :logo
+      t.string :nombre
 
       t.timestamps
     end

@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  imagen: MyText
-  descripcion: MyText
-  precio: MyText
+  imagen: MyString
+  descripcion: MyString
+  precio: MyString
+  supermercado_id: 1
 
 two:
-  imagen: MyText
-  descripcion: MyText
-  precio: MyText
+  imagen: MyString
+  descripcion: MyString
+  precio: MyString
+  supermercado_id: 1

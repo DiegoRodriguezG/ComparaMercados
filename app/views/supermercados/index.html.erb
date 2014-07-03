@@ -1,0 +1,29 @@
+<h1>Listing supermercados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Logo</th>
+      <th>Nombre</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @supermercados.each do |supermercado| %>
+      <tr>
+        <td><%= supermercado.logo %></td>
+        <td><%= supermercado.nombre %></td>
+        <td><%= link_to 'Show', supermercado %></td>
+        <td><%= link_to 'Edit', edit_supermercado_path(supermercado) %></td>
+        <td><%= link_to 'Destroy', supermercado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Supermercado', new_supermercado_path %>

@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140629205136) do
+ActiveRecord::Schema.define(version: 20140703222206) do
 
   create_table "productos", force: true do |t|
-    t.text     "imagen"
-    t.text     "descripcion"
-    t.text     "precio"
+    t.string   "imagen"
+    t.string   "descripcion"
+    t.string   "precio"
+    t.integer  "supermercado_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "supermercado_id"
   end
 
   create_table "supermercados", force: true do |t|
-    t.text     "logo"
-    t.text     "nombre"
+    t.string   "logo"
+    t.string   "nombre"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
