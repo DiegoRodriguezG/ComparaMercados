@@ -21,6 +21,7 @@
 <% end %>
 	<% @productos.each do |producto| %>
 		</br>
+		<%= image_tag producto.imagen_url(:thumb).to_s %>
 		<h4 class="subheader"><small><%= producto.descripcion %></small></h4>
 		<%= link_to "Ver producto", action: :ver_producto, id: producto.id %>
 		<br>

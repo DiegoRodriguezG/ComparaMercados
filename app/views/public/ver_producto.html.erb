@@ -3,6 +3,7 @@
   	<h1>Producto </h1><h3><small>Información acerca de <%= @producto.descripcion %></small></h3>
   	<ul class="pricing-table">
 		  <li class="title"><%= @producto.descripcion %></li>
+		  <li class="description"><%= image_tag @producto.imagen_url(:thumb).to_s %></li>
 		  <li class="price"><%= @producto.precio %>9</li>
 		  <li class="description"><%= @producto.supermercado.nombre %></li>
 		  <li class="cta-button">
