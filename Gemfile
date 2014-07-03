@@ -51,3 +51,9 @@ gem 'mechanize'
 gem 'mysql2'
 
 gem 'foundation-rails'
+
+gem 'carrierwave'
+
+gem 'rmagick', require: false
+
+gem 'safe_attributes'
