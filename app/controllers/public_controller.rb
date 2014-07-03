@@ -1,7 +1,11 @@
 class PublicController < ApplicationController
 
 	def index
-		@productos = Producto.find(:all).sample(5)
+		unless params[:busqueda].blank?
+			@productos = Producto.where("descripcion LIKE :busqueda", {busqueda: "%#{params[:busqueda]}%"})
+		else
+			@productos = Producto.find(:all).sample(5)
+		end
 	end
 
 	def ver_producto

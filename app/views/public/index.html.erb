@@ -1,8 +1,24 @@
 <h1>ComparaMercados</h1>
+<%= form_tag root_path, :method => 'get' do %>
+	<div class="small-12">
+    <div class="row collapse">
+      <div class="small-10 columns">
+				<%= text_field_tag :busqueda, params[:busqueda], placeholder: "Buscar" %>
+      </div>
+      <div class="small-2 columns">
+      	<%= submit_tag "Buscar", :name => nil , :class => "button postfix" %>
+      </div>
+    </div>
+  </div>
+<% end %>
 <br></br>
-<a href="#" class="button expand">Crea tu Lista</a>
+<!-- <a href="#" class="button expand">Crea tu Lista</a> -->
 <br></br>
-<h3 class="subheader">Top Productos</h3>
+<% unless params[:busqueda].blank? %>
+	<h3 class="subheader">Resultado de la búsqueda</h3>	
+<% else %>
+	<h3 class="subheader">Top Productos</h3>
+<% end %>
 	<% @productos.each do |producto| %>
 		</br>
 		<h4 class="subheader"><small><%= producto.descripcion %></small></h4>
